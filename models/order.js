@@ -6,21 +6,21 @@ const orderSchema = new Schema({
     type: Number,
     required: true,
   },
-  orderDate: {
+  order_date: {
     type: Date,
     default: Date.now,
   },
-  product: {
+  product_product_id: {
     type: ObjectId,
     ref: 'Product',
     required: true,
   },
-  shippingAddress: {
+  shipping_address_id: {
     type: ObjectId,
     ref: 'Address',
     required: true,
   },
-  user: {
+  user_id: {
     type: ObjectId,
     ref: 'User',
     required: true,
