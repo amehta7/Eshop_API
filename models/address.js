@@ -14,8 +14,8 @@ const addressSchema = new Schema(
       type: String,
       required: [true, 'Please provide name'],
     },
-    phone: {
-      type: Number,
+    contactNumber: {
+      type: String,
       required: [true, 'Please provide phone number'],
     },
     state: {
@@ -29,9 +29,10 @@ const addressSchema = new Schema(
     zipcode: {
       type: String,
       required: [true, 'Please provide zipcode'],
+      match: [/^\d{5,6}$/, 'Please provide valid zipcode'],
     },
-    user_id: {
-      type: ObjectId,
+    user: {
+      type: Object,
       ref: 'User',
       required: true,
     },

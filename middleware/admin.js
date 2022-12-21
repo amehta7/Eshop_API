@@ -16,9 +16,11 @@ export const adminMiddleware = async (req, res, next) => {
       req.user = payload
       next()
     } else {
-      return res.status(403).send('This is restricted to admins')
+      return res
+        .status(403)
+        .send('You are not authorized to access this endpoint!')
     }
   } catch (error) {
-    res.status(400).send('Bad Request')
+    res.status(401).send('Unauthorized access!')
   }
 }

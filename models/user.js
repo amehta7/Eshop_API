@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose'
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
 
 const userSchema = new Schema(
   {
@@ -32,8 +31,7 @@ const userSchema = new Schema(
       maxLength: 1024,
     },
     contactNumber: {
-      type: Number,
-      min: 1000000000,
+      type: String,
       unique: true,
     },
     role: {

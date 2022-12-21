@@ -2,8 +2,10 @@ import { Router } from 'express'
 
 import { createOrder } from '../controllers/order'
 
+import { authMiddleware } from '../middleware/auth'
+
 const router = Router()
 
-router.post('/', createOrder)
+router.post('/', authMiddleware, createOrder)
 
 export default router

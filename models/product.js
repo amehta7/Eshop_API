@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose'
 
 const productSchema = new Schema(
   {
-    available_items: {
+    availableItems: {
       type: Number,
       required: [true, 'Please provide number of available items'],
     },
@@ -14,7 +14,7 @@ const productSchema = new Schema(
       type: String,
       required: [true, 'Please provide description'],
     },
-    image_url: {
+    imageURL: {
       type: String,
       required: [true, 'Please provide image_url'],
     },

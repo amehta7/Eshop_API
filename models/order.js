@@ -10,18 +10,18 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  product_product_id: {
-    type: ObjectId,
+  product: {
+    type: Object,
     ref: 'Product',
     required: true,
   },
-  shipping_address_id: {
-    type: ObjectId,
+  shippingAddress: {
+    type: Object,
     ref: 'Address',
     required: true,
   },
-  user_id: {
-    type: ObjectId,
+  user: {
+    type: Object,
     ref: 'User',
     required: true,
   },

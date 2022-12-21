@@ -1,11 +1,13 @@
 import { Router } from 'express'
 
-import { getAddress, addAddress } from '../controllers/address'
+import { addAddress } from '../controllers/address'
 
 import { authMiddleware } from '../middleware/auth'
 
+import { addressValidation } from '../middleware/validation'
+
 const router = Router()
 
-router.route('/').get(authMiddleware, getAddress).post(addAddress)
+router.route('/').post(authMiddleware, addressValidation, addAddress)
 
 export default router

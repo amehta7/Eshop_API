@@ -5,7 +5,7 @@ export const authMiddleware = async (req, res, next) => {
   console.log(authHeader)
 
   if (!authHeader) {
-    return res.status(401).send('Unauthorized access!')
+    return res.status(401).send('Please Login first to access this endpoint!')
   }
 
   const token = authHeader.split(' ')[1]
