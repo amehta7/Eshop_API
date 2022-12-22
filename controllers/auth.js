@@ -33,11 +33,12 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body
     const user = await User.findOne({ email })
-    const isPasswordCorrect = await user.checkPassword(password)
 
     if (!user) {
       return res.status(401).send('This email has not been registered!')
     }
+
+    const isPasswordCorrect = await user.checkPassword(password)
 
     if (!isPasswordCorrect) {
       return res.status(401).send('Invalid Credentials!')

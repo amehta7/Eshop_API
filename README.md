@@ -15,7 +15,7 @@ $ npm run dev
 
 #### Models/Database Schema
 
-There are 3 models:
+There are 4 models:
 
 1. User
 2. Address

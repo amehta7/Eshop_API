@@ -12,6 +12,11 @@ import helmet from 'helmet'
 import cors from 'cors'
 import xss from 'xss-clean'
 
+// Swagger
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml')
+
 const app = express()
 
 app.use(helmet())
@@ -26,9 +31,16 @@ app.use(express.json())
 const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
-  res.status(200).send('<h1>Welcome to upGrad Eshop App!!!</h1>')
+  res
+    .status(200)
+    .send(
+      '<h1>Welcome to upGrad Eshop App!!!</h1><a href="/api-docs">API Documentation</a>'
+    )
 })
 
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+
+// routes
 app.use('/api/v1/orders', orderRouter)
 app.use('/api/v1/products', productRouter)
 app.use('/api/v1/addresses', addressRouter)

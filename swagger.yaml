@@ -1,0 +1,183 @@
+openapi: 3.0.0
+info:
+  title: Eshop API
+  contact: {}
+  version: '1.0'
+servers:
+  - url: http://localhost:3000/api/v1
+    variables: {}
+paths:
+  /products:
+    get:
+      tags:
+        - Product
+      summary: Get All Products / Search Product
+      operationId: GetAllProducts/SearchProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    post:
+      tags:
+        - Product
+      summary: Create Product
+      operationId: CreateProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /products/categories:
+    get:
+      tags:
+        - Product
+      summary: Get Product Categories
+      operationId: GetProductCategories
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /products/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The product ID
+    get:
+      tags:
+        - Product
+      summary: Get Single Product By Id
+      operationId: GetSingleProductById
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    put:
+      tags:
+        - Product
+      summary: Update Product
+      operationId: UpdateProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+        - Product
+      summary: Delete Product
+      operationId: DeleteProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /addresses:
+    post:
+      tags:
+        - Address
+      summary: Add Address
+      operationId: AddAddress
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /orders:
+    post:
+      tags:
+        - Order
+      summary: Create Order
+      operationId: CreateOrder
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users:
+    post:
+      tags:
+        - Auth
+      summary: Sign Up
+      operationId: SignUp
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/LoginRequest'
+                - example:
+                    password: password
+                    email: jon.soni@upgrad.com
+            example:
+              password: password
+              email: jon.soni@upgrad.com
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    LoginRequest:
+      title: LoginRequest
+      required:
+        - password
+        - email
+      type: object
+      properties:
+        password:
+          type: string
+        email:
+          type: string
+      example:
+        password: password
+        email: jon.soni@upgrad.com
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+  - httpBearer: []
+tags:
+  - name: Product
+    description: ''
+  - name: Address
+    description: ''
+  - name: Order
+    description: ''
+  - name: Auth
+    description: ''

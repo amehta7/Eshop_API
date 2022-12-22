@@ -12,6 +12,13 @@ export const adminMiddleware = async (req, res, next) => {
   try {
     const payload = await jwt.verify(token, process.env.jwtPrivateKey)
     //console.log(payload)
+
+    let expiry = payload.exp
+
+    if (Math.floor(new Date().getTime() / 1000) >= expiry) {
+      return res.status(403).send('Token has expired!')
+    }
+
     if (payload.isAdmin) {
       req.user = payload
       next()
