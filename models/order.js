@@ -11,17 +11,17 @@ const orderSchema = new Schema({
     default: Date.now,
   },
   product: {
-    type: Object,
+    type: ObjectId,
     ref: 'Product',
     required: true,
   },
   shippingAddress: {
-    type: Object,
+    type: ObjectId,
     ref: 'Address',
     required: true,
   },
   user: {
-    type: Object,
+    type: ObjectId,
     ref: 'User',
     required: true,
   },

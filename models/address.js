@@ -32,9 +32,9 @@ const addressSchema = new Schema(
       match: [/^\d{5,6}$/, 'Please provide valid zipcode'],
     },
     user: {
-      type: Object,
+      type: ObjectId,
       ref: 'User',
-      required: true,
+      required: [true, 'Please provide user'],
     },
   },
   { timestamps: true }
