@@ -6,7 +6,7 @@ const orderSchema = new Schema({
     type: Number,
     required: true,
   },
-  orderDate: {
+  order_date: {
     type: Date,
     default: Date.now,
   },
