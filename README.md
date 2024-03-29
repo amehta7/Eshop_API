@@ -1,4 +1,4 @@
-### Eshop_App_Backend - Eshop API
+### Eshop API
 
 - Designed a powerful and scalable back-end application using Node.js, Express.js, and MongoDB. This RESTful API is tailored for eCommerce purposes, featuring essential functionalities such as user authentication, address management, order creation, and comprehensive product management. The use of JWT (JSON Web Tokens) ensures secure authentication, making it a robust solution for powering eCommerce applications.
 - Leveraging the capabilities of Node.js, Express.js, and MongoDB, I created a RESTful API that meets the demands of modern eCommerce applications. The incorporation of JWT ensures secure authentication, contributing to the overall security and reliability of the API.
